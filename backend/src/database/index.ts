@@ -1,7 +1,9 @@
-import { Sequelize } from "sequelize-typescript";
-import User from "../models/user";
+import { Sequelize } from 'sequelize-typescript';
 
-const config = require("../config/database");
+import User from '../models/user';
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const config = require('../config/database');
 
 const models = [User];
 
