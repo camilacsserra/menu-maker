@@ -11,14 +11,9 @@ services:
     ports:
       - "9000:5432"
     volumes:
-      - ./var/postgres/data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_HOST=localhost
-      - POSTGRES_PASSWORD=senhaforte123
-      - POSTGRES_DB=menuMaker
-      - POSTGRES_USER=postgres
-      - POSTGRES_PORT=5432
-      - TZ=UTC
+      - menu_maker_volume:/var/lib/postgresql/data
+    env_file:
+      - .env.database
     networks:
       - menu-maker-network
     healthcheck:
@@ -27,3 +22,12 @@ services:
       timeout: 60s
       retries: 5
       start_period: 80s
+
+volumes:
+  menu_maker_volume:
+    name: menu_maker_volume
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./var/postgres/data
