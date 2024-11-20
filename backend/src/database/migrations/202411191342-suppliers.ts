@@ -56,7 +56,7 @@ module.exports = {
       },
       updated_by_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Users',
           key: 'id',

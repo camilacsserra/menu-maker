@@ -11,11 +11,20 @@ type Data = {
   phone_number: string;
   email: string;
   website: string;
+  created_by_id: number;
 };
 
 const CreateSupplierService = async (data: Data) => {
-  const { name, order_at, delivery_at, address, phone_number, email, website } =
-    data;
+  const {
+    name,
+    order_at,
+    delivery_at,
+    address,
+    phone_number,
+    email,
+    website,
+    created_by_id,
+  } = data;
   const schema = Yup.object().shape({
     name: Yup.string().required('NAME_IS_REQUIRED'),
     order_at: Yup.string().required('DATE_IS_REQUIRED'),
@@ -24,6 +33,7 @@ const CreateSupplierService = async (data: Data) => {
     phone_number: Yup.string().required('PHONE_NUMBER_IS_REQUIRED'),
     email: Yup.string().email().required('EMAIL_IS_REQUIRED'),
     website: Yup.string(),
+    created_by_id: Yup.number().required('CREATED_BY_ID_IS_REQUIRED'),
   });
 
   try {
@@ -40,6 +50,7 @@ const CreateSupplierService = async (data: Data) => {
     phone_number,
     email,
     website,
+    created_by_id,
   } as unknown as Supplier);
   return supplier;
 };

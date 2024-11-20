@@ -7,8 +7,17 @@ import ShowSupplierService from '../services/supplier/ShowSupplierService';
 import UpdateSupplierService from '../services/supplier/UpdateSupplierService';
 
 export const list = async (req: Request, res: Response) => {
-  const { name, order_at, delivery_at, address, phone_number, email, website } =
-    req.query;
+  const {
+    name,
+    order_at,
+    delivery_at,
+    address,
+    phone_number,
+    email,
+    website,
+    created_by_id,
+    updated_by_id,
+  } = req.query;
   const data = await ListSupplierService({
     name,
     order_at,
@@ -17,6 +26,8 @@ export const list = async (req: Request, res: Response) => {
     phone_number,
     email,
     website,
+    created_by_id,
+    updated_by_id,
   } as any);
   res.json(data);
 };
@@ -28,8 +39,16 @@ export const show = async (req: Request, res: Response) => {
 };
 
 export const create = async (req: Request, res: Response) => {
-  const { name, order_at, delivery_at, address, phone_number, email, website } =
-    req.body;
+  const {
+    name,
+    order_at,
+    delivery_at,
+    address,
+    phone_number,
+    email,
+    website,
+    created_by_id,
+  } = req.body;
   const data = await CreateSupplierService({
     name,
     order_at,
@@ -38,14 +57,24 @@ export const create = async (req: Request, res: Response) => {
     phone_number,
     email,
     website,
+    created_by_id,
   });
   res.json(data);
 };
 
 export const update = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, order_at, delivery_at, address, phone_number, email, website } =
-    req.body;
+  const {
+    name,
+    order_at,
+    delivery_at,
+    address,
+    phone_number,
+    email,
+    website,
+    created_by_id,
+    updated_by_id,
+  } = req.body;
   const data = await UpdateSupplierService(+id, {
     name,
     order_at,
@@ -54,6 +83,8 @@ export const update = async (req: Request, res: Response) => {
     phone_number,
     email,
     website,
+    created_by_id,
+    updated_by_id,
   });
   res.json(data);
 };

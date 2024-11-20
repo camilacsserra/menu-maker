@@ -10,6 +10,8 @@ const UpdateUserService = async (
     phone_number: string;
     email: string;
     website: string;
+    created_by_id: number;
+    updated_by_id: number;
   },
 ) => {
   const supplier = await ShowSupplierService(id);

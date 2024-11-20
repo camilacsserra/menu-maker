@@ -57,7 +57,7 @@ class Supplier extends Model<Supplier> {
   @Column
   updated_by_id: number;
 
-  @BelongsTo(() => User, { as: 'updated_by', foreignKey: ' updated_by_id' })
+  @BelongsTo(() => User, { as: 'updated_by', foreignKey: 'updated_by_id' })
   updated_by: User;
 }
 
