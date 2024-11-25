@@ -1,6 +1,6 @@
 import ShowSupplierService from './ShowSupplierService';
 
-const UpdateUserService = async (
+const UpdateSupplierService = async (
   id: number,
   data: {
     name: string;
@@ -20,4 +20,4 @@ const UpdateUserService = async (
   return supplier;
 };
 
-export default UpdateUserService;
+export default UpdateSupplierService;
