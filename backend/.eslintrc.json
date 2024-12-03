@@ -10,7 +10,9 @@
     "@typescript-eslint"
   ],
   "parserOptions": {
-    "project": ["tsconfig.json"],
+    "project": [
+      "tsconfig.json"
+    ],
     "createDefaultProgram": true,
     "sourceType": "module"
   },
@@ -26,7 +28,12 @@
   "rules": {
     "prettier/prettier": "error",
     "eqeqeq": "error",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "no-unused-vars": "off",
     "no-trailing-spaces": "error",
     "indent": "off",
@@ -81,6 +88,34 @@
           "order": "asc",
           "caseInsensitive": true
         }
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "block"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "if"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "expression"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "function"
       }
     ]
   }

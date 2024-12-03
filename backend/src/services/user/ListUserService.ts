@@ -1,10 +1,12 @@
 import { Op } from 'sequelize';
 
-import User from '../../models/user';
+import { ListUserDto } from '@app/dtos/user';
+import { User } from '@app/models/user';
 
-const ListUserService = async (data: { name: string; email: string }) => {
+const ListUserService = async (data: ListUserDto) => {
   const { name, email } = data;
   let whereOptions = {};
+
   if (name) {
     whereOptions = {
       ...whereOptions,
@@ -13,6 +15,7 @@ const ListUserService = async (data: { name: string; email: string }) => {
       },
     };
   }
+
   if (email) {
     whereOptions = {
       ...whereOptions,
@@ -25,6 +28,7 @@ const ListUserService = async (data: { name: string; email: string }) => {
     where: whereOptions,
     attributes: ['id', 'name', 'email'],
   });
+
   return users;
 };
 

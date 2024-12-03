@@ -1,49 +1,17 @@
-import {
-  AutoIncrement,
-  Column,
-  Model,
-  PrimaryKey,
-  Table,
-  CreatedAt,
-  UpdatedAt,
-  ForeignKey,
-  BelongsTo,
-} from 'sequelize-typescript';
+import { Column, Table, BelongsToMany } from 'sequelize-typescript';
 
-import User from './user';
+import { Base } from './base';
+import { IngredientSupplier } from './ingredientSuppliers';
+import { Supplier } from './supplier';
 
 @Table({
   tableName: 'Ingredients',
   timestamps: true,
 })
-class Ingredient extends Model<Ingredient> {
-  @PrimaryKey
-  @AutoIncrement
-  @Column
-  id: number;
-
+export class Ingredient extends Base<Ingredient> {
   @Column
   name: string;
 
-  @CreatedAt
-  created_at: Date;
-
-  @ForeignKey(() => User)
-  @Column
-  created_by_id: number;
-
-  @BelongsTo(() => User, { as: 'created_by', foreignKey: 'created_by_id' })
-  created_by: User;
-
-  @UpdatedAt
-  updated_at: Date;
-
-  @ForeignKey(() => User)
-  @Column
-  updated_by_id: number;
-
-  @BelongsTo(() => User, { as: 'updated_by', foreignKey: 'updated_by_id' })
-  updated_by: User;
+  @BelongsToMany(() => Supplier, () => IngredientSupplier)
+  suppliers: Supplier[];
 }
-
-export default Ingredient;

@@ -1,4 +1,4 @@
-import User from '../../models/user';
+import { User } from '@app/models';
 
 const DeleteUserServices = async (id: number) => {
   await User.destroy({ where: { id } });

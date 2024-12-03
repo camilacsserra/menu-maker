@@ -1,15 +1,13 @@
-import { Op } from 'sequelize';
+import { literal, Op } from 'sequelize';
 
-import Supplier from '../../models/supplier';
+import { ListSupplierDto } from '@app/dtos/supplier';
+import { Ingredient } from '@app/models';
+import { Supplier } from '@app/models/supplier';
 
-const ListSupplierService = async (data: {
-  name: string;
-  email: string;
-  order_at: string;
-  delivery_at: string;
-}) => {
-  const { name, email, order_at, delivery_at } = data;
+export const ListSupplierService = async (data: ListSupplierDto) => {
+  const { name, email, orderAt, deliveryAt, ingredientIds } = data;
   let whereOptions = {};
+
   if (name) {
     whereOptions = {
       ...whereOptions,
@@ -18,6 +16,7 @@ const ListSupplierService = async (data: {
       },
     };
   }
+
   if (email) {
     whereOptions = {
       ...whereOptions,
@@ -26,28 +25,42 @@ const ListSupplierService = async (data: {
       },
     };
   }
-  if (order_at) {
+
+  if (orderAt) {
     whereOptions = {
       ...whereOptions,
       name: {
-        [Op.iLike]: `%${order_at}%`,
-      },
-    };
-  }
-  if (delivery_at) {
-    whereOptions = {
-      ...whereOptions,
-      name: {
-        [Op.iLike]: `%${delivery_at}%`,
+        [Op.iLike]: `%${orderAt}%`,
       },
     };
   }
 
+  if (deliveryAt) {
+    whereOptions = {
+      ...whereOptions,
+      name: {
+        [Op.iLike]: `%${deliveryAt}%`,
+      },
+    };
+  }
+
+  if (ingredientIds?.length) {
+    whereOptions = {
+      ...whereOptions,
+      id: {
+        [Op.and]: [
+          literal(
+            `"Supplier".id in (select "supplier_id" from "IngredientSuppliers" where "IngredientSuppliers"."ingredient_id" in (${ingredientIds.join(',')}))`,
+          ),
+        ],
+      },
+    };
+  }
   const supplier = await Supplier.findAndCountAll({
     where: whereOptions,
-    attributes: ['id', 'name', 'order_at', 'delivery_at'],
+    include: [{ model: Ingredient, attributes: ['id', 'name'] }],
+    attributes: ['id', 'name', 'orderAt', 'deliveryAt'],
   });
+
   return supplier;
 };
-
-export default ListSupplierService;

@@ -9,6 +9,7 @@ import './database';
 const app = express();
 
 app.use(express.json());
+
 app.use(router);
 
 app.use(
@@ -17,10 +18,12 @@ app.use(
     req: Request,
     res: Response,
     _: NextFunction,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> => {
     if (error instanceof AppError) {
       return res.status(error.status).json({ error: error.message });
     }
+
     return res.status(500).json({ error: 'Internal Server Error' });
   },
 );

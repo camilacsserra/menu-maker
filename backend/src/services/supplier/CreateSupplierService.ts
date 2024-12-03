@@ -1,39 +1,31 @@
 import * as Yup from 'yup';
 
+import { CreateSupplierDto } from '@app/dtos/supplier';
+import { Supplier } from '@app/models';
+
 import AppError from '../../errors/appError';
-import Supplier from '../../models/supplier';
 
-type Data = {
-  name: string;
-  order_at: string;
-  delivery_at: string;
-  address: string;
-  phone_number: string;
-  email: string;
-  website: string;
-  created_by_id: number;
-};
-
-const CreateSupplierService = async (data: Data) => {
+export const CreateSupplierService = async (data: CreateSupplierDto) => {
   const {
     name,
-    order_at,
-    delivery_at,
+    orderAt,
+    deliveryAt,
     address,
-    phone_number,
+    phoneNumber,
     email,
     website,
-    created_by_id,
+    createdById,
+    ingredientIds,
   } = data;
   const schema = Yup.object().shape({
     name: Yup.string().required('NAME_IS_REQUIRED'),
-    order_at: Yup.string().required('DATE_IS_REQUIRED'),
-    delivery_at: Yup.string().required('DATE_IS_REQUIRED'),
+    orderAt: Yup.string().required('DATE_IS_REQUIRED'),
+    deliveryAt: Yup.string().required('DATE_IS_REQUIRED'),
     address: Yup.string().required('ADDRESS_IS_REQUIRED'),
-    phone_number: Yup.string().required('PHONE_NUMBER_IS_REQUIRED'),
+    phoneNumber: Yup.string().required('phoneNumber_IS_REQUIRED'),
     email: Yup.string().email().required('EMAIL_IS_REQUIRED'),
     website: Yup.string(),
-    created_by_id: Yup.number().required('CREATED_BY_ID_IS_REQUIRED'),
+    createdById: Yup.number().required('createdById_IS_REQUIRED'),
   });
 
   try {
@@ -44,15 +36,16 @@ const CreateSupplierService = async (data: Data) => {
 
   const supplier = await Supplier.create({
     name,
-    order_at,
-    delivery_at,
+    orderAt,
+    deliveryAt,
     address,
-    phone_number,
+    phoneNumber,
     email,
     website,
-    created_by_id,
+    createdById,
   } as unknown as Supplier);
+
+  if (ingredientIds) await supplier.$set('ingredients', ingredientIds);
+
   return supplier;
 };
-
-export default CreateSupplierService;

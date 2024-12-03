@@ -9,7 +9,7 @@ import {
 } from 'sequelize-typescript';
 
 @Table
-class User extends Model<User> {
+export class User extends Model<User> {
   @PrimaryKey
   @AutoIncrement
   @Column
@@ -25,10 +25,10 @@ class User extends Model<User> {
   password: string;
 
   @CreatedAt
-  created_at: Date;
+  @Column({ field: 'created_at' })
+  createdAt: Date;
 
   @UpdatedAt
-  updated_at: Date;
+  @Column({ field: 'updated_at' })
+  updatedAt: Date;
 }
-
-export default User;

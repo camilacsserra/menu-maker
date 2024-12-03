@@ -36,7 +36,7 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      created_at: {
+      createdAt: {
         type: DataTypes.DATE,
         defaultValue: new Date(),
       },

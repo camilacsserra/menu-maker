@@ -1,10 +1,12 @@
 import { Op } from 'sequelize';
 
-import Ingredient from '../../models/ingredient';
+import { ListIngredientDto } from '@app/dtos/ingredient';
+import { Ingredient } from '@app/models/ingredient';
 
-const ListIngredientService = async (data: { name: string }) => {
+const ListIngredientService = async (data: ListIngredientDto) => {
   const { name } = data;
   let whereOptions = {};
+
   if (name) {
     whereOptions = {
       ...whereOptions,
@@ -18,6 +20,7 @@ const ListIngredientService = async (data: { name: string }) => {
     where: whereOptions,
     attributes: ['id', 'name'],
   });
+
   return ingredient;
 };
 

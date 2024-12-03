@@ -7,8 +7,11 @@ const UpdateIngredientService = async (
   },
 ) => {
   const ingredient = await ShowIngredientService(id);
+
   await ingredient.update(data);
+
   await ingredient.reload();
+
   return ingredient;
 };
 

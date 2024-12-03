@@ -1,18 +1,16 @@
-import Supplier from '../../models/supplier';
+import { Supplier } from '@app/models';
 
-const ShowSupplierService = async (id: number) => {
+export const ShowSupplierService = async (id: number) => {
   return await Supplier.findByPk(id, {
     attributes: [
       'id',
       'name',
-      'order_at',
-      'delivery_at',
+      'orderAt',
+      'deliveryAt',
       'address',
-      'phone_number',
+      'phoneNumber',
       'email',
       'website',
     ],
   });
 };
-
-export default ShowSupplierService;

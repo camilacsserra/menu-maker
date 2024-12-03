@@ -1,13 +1,11 @@
 import { Sequelize } from 'sequelize-typescript';
 
-import Ingredient from '../models/ingredient';
-import Supplier from '../models/supplier';
-import User from '../models/user';
+import { Ingredient, IngredientSupplier, Supplier, User } from '@app/models';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const config = require('../config/database');
 
-const models = [User, Supplier, Ingredient];
+const models = [User, Supplier, Ingredient, IngredientSupplier];
 
 const sequelize = new Sequelize(config);
 

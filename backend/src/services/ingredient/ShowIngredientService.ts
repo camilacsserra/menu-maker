@@ -1,4 +1,4 @@
-import Ingredient from '../../models/ingredient';
+import { Ingredient } from '@app/models';
 
 const ShowIngredientService = async (id: number) => {
   return await Ingredient.findByPk(id, {

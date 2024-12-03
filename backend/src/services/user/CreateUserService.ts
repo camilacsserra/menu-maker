@@ -1,8 +1,9 @@
 import { hashSync } from 'bcrypt';
 import * as Yup from 'yup';
 
+import { User } from '@app/models';
+
 import AppError from '../../errors/appError';
-import User from '../../models/user';
 
 type Data = {
   name: string;
@@ -31,6 +32,7 @@ const CreateUserService = async (data: Data) => {
     email,
     password: passwordHash,
   } as unknown as User);
+
   return user;
 };
 

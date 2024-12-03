@@ -1,23 +1,19 @@
-import ShowSupplierService from './ShowSupplierService';
+import { UpdateSupplierDto } from '@app/dtos/supplier/UpdateSupplierDto';
 
-const UpdateSupplierService = async (
+import { ShowSupplierService } from './ShowSupplierService';
+
+export const UpdateSupplierService = async (
   id: number,
-  data: {
-    name: string;
-    order_at: string;
-    delivery_at: string;
-    address: string;
-    phone_number: string;
-    email: string;
-    website: string;
-    created_by_id: number;
-    updated_by_id: number;
-  },
+  data: UpdateSupplierDto,
 ) => {
   const supplier = await ShowSupplierService(id);
+
   await supplier.update(data);
+
   await supplier.reload();
+
+  if (data.ingredientIds)
+    await supplier.$set('ingredients', data.ingredientIds);
+
   return supplier;
 };
-
-export default UpdateSupplierService;
