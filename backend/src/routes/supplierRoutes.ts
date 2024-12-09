@@ -6,7 +6,7 @@ const supplierRoutes = Router();
 
 supplierRoutes.get('/suppliers', supplierController.list);
 
-supplierRoutes.get('/user/:id', supplierController.show);
+supplierRoutes.get('/suppliers/:id', supplierController.show);
 
 supplierRoutes.post('/suppliers', supplierController.create);
 

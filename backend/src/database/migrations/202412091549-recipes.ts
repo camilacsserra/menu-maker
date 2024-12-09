@@ -2,7 +2,7 @@ import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('unit_of_measure', {
+    await queryInterface.createTable('Recipes', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -11,6 +11,24 @@ module.exports = {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      methods: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      servings: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      cookingTime: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        comment: 'In minutes',
+      },
+      dietType: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        comment: 'is Vegan or vegetarian?',
       },
       created_at: {
         type: DataTypes.DATE,
@@ -46,6 +64,6 @@ module.exports = {
   },
 
   down: async (queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('unit_of_measure');
+    await queryInterface.dropTable('Recipes');
   },
 };

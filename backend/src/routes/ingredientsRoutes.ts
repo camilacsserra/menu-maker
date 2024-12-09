@@ -1,17 +1,17 @@
 import { Router } from 'express';
 
-import * as ingredietController from './../controllers/ingredientController';
+import * as ingredientController from './../controllers/ingredientController';
 
 const ingredientRoutes = Router();
 
-ingredientRoutes.get('/ingredients', ingredietController.list);
+ingredientRoutes.get('/ingredients', ingredientController.list);
 
-ingredientRoutes.get('/user/:id', ingredietController.show);
+ingredientRoutes.get('/ingredients/:id', ingredientController.show);
 
-ingredientRoutes.post('/ingredients', ingredietController.create);
+ingredientRoutes.post('/ingredients', ingredientController.create);
 
-ingredientRoutes.put('/ingredients/:id', ingredietController.update);
+ingredientRoutes.put('/ingredients/:id', ingredientController.update);
 
-ingredientRoutes.delete('/ingredients/:id', ingredietController.destroy);
+ingredientRoutes.delete('/ingredients/:id', ingredientController.destroy);
 
 export default ingredientRoutes;
