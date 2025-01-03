@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
 
 import { ListUserDto } from '@app/dtos/user';
-
-import CreateUserService from '../services/user/CreateUserService';
-import DeleteUserServices from '../services/user/DeleteUserService';
-import ListUserService from '../services/user/ListUserService';
-import ShowUserService from '../services/user/ShowUserService';
-import UpdateUserService from '../services/user/UpdateUserService';
+import AppError from '@app/errors/appError';
+import {
+  CreateUserService,
+  DeleteUserServices,
+  ListUserService,
+  ShowUserService,
+  UpdateUserService,
+} from '@app/services/user';
 
 export const list = async (req: Request, res: Response) => {
   const { name, email } = req.query as unknown as ListUserDto;
@@ -37,10 +39,16 @@ export const update = async (req: Request, res: Response) => {
   res.json(data);
 };
 
-export const destroy = async (req: Request, res: Response) => {
+export const destroy = async (req: Request, res: Response): Promise<void> => {
   const { id } = req.params;
 
-  await DeleteUserServices(+id);
+  try {
+    await DeleteUserServices(+id);
 
-  res.json({ message: 'deleted' });
+    res.json({ message: 'deleted' });
+  } catch (error) {
+    if (error instanceof AppError) {
+      res.status(404).json({ error: error.message });
+    }
+  }
 };

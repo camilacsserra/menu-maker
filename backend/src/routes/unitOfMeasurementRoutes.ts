@@ -1,31 +1,38 @@
 import { Router } from 'express';
 
+import { isAuthenticatedMiddleware } from '@app/middlewares';
+
 import * as unitOfMeasurementController from './../controllers/unitOfMeasurementController';
 
 const unitOfMeasurementRoutes = Router();
 
 unitOfMeasurementRoutes.get(
-  '/unit-of-measurements',
+  '/units-of-measurement',
+  isAuthenticatedMiddleware,
   unitOfMeasurementController.list,
 );
 
 unitOfMeasurementRoutes.get(
-  '/unit-of-measurements/:id',
+  '/units-of-measurement/:id',
+  isAuthenticatedMiddleware,
   unitOfMeasurementController.show,
 );
 
 unitOfMeasurementRoutes.post(
-  '/unit-of-measurements',
+  '/units-of-measurement',
+  isAuthenticatedMiddleware,
   unitOfMeasurementController.create,
 );
 
 unitOfMeasurementRoutes.put(
-  '/unit-of-measurements/:id',
+  '/units-of-measurement/:id',
+  isAuthenticatedMiddleware,
   unitOfMeasurementController.update,
 );
 
 unitOfMeasurementRoutes.delete(
-  '/unit-of-measurements/:id',
+  '/units-of-measurement/:id',
+  isAuthenticatedMiddleware,
   unitOfMeasurementController.destroy,
 );
 

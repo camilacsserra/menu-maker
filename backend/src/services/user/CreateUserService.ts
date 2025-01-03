@@ -11,7 +11,7 @@ type Data = {
   password: string;
 };
 
-const CreateUserService = async (data: Data) => {
+export const CreateUserService = async (data: Data) => {
   const { name, email, password } = data;
   const schema = Yup.object().shape({
     name: Yup.string().required('NAME_IS_REQUIRED'),
@@ -25,6 +25,12 @@ const CreateUserService = async (data: Data) => {
     throw new AppError(error.message);
   }
 
+  const existingUserEmail = await User.findOne({ where: { email } });
+
+  if (existingUserEmail) {
+    throw new AppError('EMAIL_ALREADY_IN_USE');
+  }
+
   const SALT = 10;
   const passwordHash = hashSync(password, SALT);
   const user = await User.create({
@@ -35,5 +41,3 @@ const CreateUserService = async (data: Data) => {
 
   return user;
 };
-
-export default CreateUserService;

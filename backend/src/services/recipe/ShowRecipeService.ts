@@ -1,7 +1,8 @@
+import AppError from '@app/errors/appError';
 import { Recipes } from '@app/models';
 
 export const ShowRecipeService = async (id: number) => {
-  return await Recipes.findByPk(id, {
+  const recipe = await Recipes.findByPk(id, {
     attributes: [
       'id',
       'name',
@@ -12,4 +13,10 @@ export const ShowRecipeService = async (id: number) => {
       'createdById',
     ],
   });
+
+  if (!recipe) {
+    throw new AppError('RECIPE_NOT_FOUND');
+  }
+
+  return recipe;
 };

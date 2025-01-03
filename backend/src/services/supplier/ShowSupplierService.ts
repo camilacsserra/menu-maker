@@ -1,7 +1,8 @@
+import AppError from '@app/errors/appError';
 import { Supplier } from '@app/models';
 
 export const ShowSupplierService = async (id: number) => {
-  return await Supplier.findByPk(id, {
+  const supplier = await Supplier.findByPk(id, {
     attributes: [
       'id',
       'name',
@@ -13,4 +14,10 @@ export const ShowSupplierService = async (id: number) => {
       'website',
     ],
   });
+
+  if (!supplier) {
+    throw new AppError(`SUPPLIER_ID_${id}_DOES_NOT_EXIST`);
+  }
+
+  return supplier;
 };

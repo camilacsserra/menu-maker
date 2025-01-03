@@ -5,6 +5,7 @@ import AppError from './errors/appError';
 import router from './routes';
 import './bootstrap';
 import './database';
+import { logger } from './utils/logger';
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use(
     _: NextFunction,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> => {
+    logger.error(`[HTTP_500] ${error.message}`);
+
     if (error instanceof AppError) {
       return res.status(error.status).json({ error: error.message });
     }

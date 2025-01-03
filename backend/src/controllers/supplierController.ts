@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import { ListSupplierDto } from '@app/dtos/supplier';
+import AppError from '@app/errors/appError';
 import {
   CreateSupplierService,
   DeleteSupplierServices,
@@ -8,13 +9,11 @@ import {
   ShowSupplierService,
   UpdateSupplierService,
 } from '@app/services/supplier';
-import { logger } from '@app/utils/logger';
 
 export const list = async (req: Request, res: Response) => {
   const { name, orderAt, deliveryAt, email, ingredientIds } =
     req.query as unknown as ListSupplierDto;
 
-  logger.info(`controller`);
   const data = await ListSupplierService({
     name,
     orderAt,
@@ -90,10 +89,16 @@ export const update = async (req: Request, res: Response) => {
   res.json(data);
 };
 
-export const destroy = async (req: Request, res: Response) => {
+export const destroy = async (req: Request, res: Response): Promise<void> => {
   const { id } = req.params;
 
-  await DeleteSupplierServices(+id);
+  try {
+    await DeleteSupplierServices(+id);
 
-  res.json({ message: 'deleted' });
+    res.json({ message: 'deleted' });
+  } catch (error) {
+    if (error instanceof AppError) {
+      res.status(404).json({ error: error.message });
+    }
+  }
 };

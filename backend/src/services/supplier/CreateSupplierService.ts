@@ -22,10 +22,10 @@ export const CreateSupplierService = async (data: CreateSupplierDto) => {
     orderAt: Yup.string().required('DATE_IS_REQUIRED'),
     deliveryAt: Yup.string().required('DATE_IS_REQUIRED'),
     address: Yup.string().required('ADDRESS_IS_REQUIRED'),
-    phoneNumber: Yup.string().required('phoneNumber_IS_REQUIRED'),
+    phoneNumber: Yup.string().required('PHONE_NUMBER_IS_REQUIRED'),
     email: Yup.string().email().required('EMAIL_IS_REQUIRED'),
     website: Yup.string(),
-    createdById: Yup.number().required('createdById_IS_REQUIRED'),
+    createdById: Yup.number().required('CREATED_BY_ID_IS_REQUIRED'),
   });
 
   try {

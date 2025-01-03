@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import authRoutes from './authRoutes';
 import ingredientRoutes from './ingredientsRoutes';
 import recipeRoutes from './recipeRoutes';
 import supplierRoutes from './supplierRoutes';
@@ -17,5 +18,7 @@ router.use(ingredientRoutes);
 router.use(unitOfMeasurementRoutes);
 
 router.use(recipeRoutes);
+
+router.use(authRoutes);
 
 export default router;

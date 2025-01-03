@@ -3,7 +3,7 @@ import { Op } from 'sequelize';
 import { ListUserDto } from '@app/dtos/user';
 import { User } from '@app/models/user';
 
-const ListUserService = async (data: ListUserDto) => {
+export const ListUserService = async (data: ListUserDto) => {
   const { name, email } = data;
   let whereOptions = {};
 
@@ -31,5 +31,3 @@ const ListUserService = async (data: ListUserDto) => {
 
   return users;
 };
-
-export default ListUserService;

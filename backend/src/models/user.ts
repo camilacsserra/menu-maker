@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import {
   AutoIncrement,
   Column,
@@ -31,4 +32,8 @@ export class User extends Model<User> {
   @UpdatedAt
   @Column({ field: 'updated_at' })
   updatedAt: Date;
+
+  async validatePassword(password: string) {
+    return await bcrypt.compare(password, this.getDataValue('password'));
+  }
 }

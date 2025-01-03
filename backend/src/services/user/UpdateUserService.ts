@@ -1,6 +1,6 @@
-import ShowUserService from './ShowUserService';
+import { ShowUserService } from './ShowUserService';
 
-const UpdateUserService = async (
+export const UpdateUserService = async (
   id: number,
   data: { name: string; email: string },
 ) => {
@@ -12,5 +12,3 @@ const UpdateUserService = async (
 
   return user;
 };
-
-export default UpdateUserService;

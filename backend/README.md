@@ -14,6 +14,8 @@ npm i -D @types/express
 npm i yup
 npm i bcrypt
 npm i express-async-errors
+npm i jsonwebtoken
+npm i cookie-parser
 ```
 
 ## Initializing the typescript

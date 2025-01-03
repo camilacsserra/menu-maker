@@ -1,5 +1,10 @@
+import AppError from '@app/errors/appError';
 import { Supplier } from '@app/models';
 
 export const DeleteSupplierServices = async (id: number) => {
-  await Supplier.destroy({ where: { id } });
+  const deletedCount = await Supplier.destroy({ where: { id } });
+
+  if (deletedCount === 0) {
+    throw new AppError(`ID_${id}_DOES_NOT_EXIST`);
+  }
 };
