@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 import { CreateRecipeDto } from '@app/dtos/recipe';
-import { Recipes } from '@app/models';
+import { Recipe } from '@app/models';
 
 import AppError from '../../errors/appError';
 
@@ -22,14 +22,14 @@ export const CreateRecipeService = async (data: CreateRecipeDto) => {
     throw new AppError(error.message);
   }
 
-  const recipes = await Recipes.create({
+  const recipes = await Recipe.create({
     name,
     methods,
     servings,
     cookingTime,
     dietType,
     createdById,
-  } as unknown as Recipes);
+  } as unknown as Recipe);
 
   return recipes;
 };

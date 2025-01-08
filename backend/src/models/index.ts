@@ -3,4 +3,5 @@ export * from './ingredientSuppliers';
 export * from './supplier';
 export * from './user';
 export * from './unitOfMeasurement';
-export * from './recipes';
+export * from './recipe';
+export * from './chef';

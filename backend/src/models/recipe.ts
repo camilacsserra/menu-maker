@@ -6,7 +6,7 @@ import { Base } from './base';
   tableName: 'Recipes',
   timestamps: true,
 })
-export class Recipes extends Base<Recipes> {
+export class Recipe extends Base<Recipe> {
   @Column
   name: string;
 

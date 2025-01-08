@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
 
 import { ListRecipeDto } from '@app/dtos/recipe';
-import { Recipes } from '@app/models';
+import { Recipe } from '@app/models';
 
 export const ListRecipeService = async (data: ListRecipeDto) => {
   const { name, cookingTime, dietType } = data;
@@ -34,7 +34,7 @@ export const ListRecipeService = async (data: ListRecipeDto) => {
     };
   }
 
-  const recipe = await Recipes.findAndCountAll({
+  const recipe = await Recipe.findAndCountAll({
     where: whereOptions,
     attributes: ['id', 'name', 'cookingTime', 'dietType'],
   });

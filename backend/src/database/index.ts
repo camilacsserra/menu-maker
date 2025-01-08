@@ -3,10 +3,11 @@ import { Sequelize } from 'sequelize-typescript';
 import {
   Ingredient,
   IngredientSupplier,
-  Recipes,
+  Recipe,
   Supplier,
   UnitOfMeasurement,
   User,
+  Chef,
 } from '@app/models';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -18,7 +19,8 @@ const models = [
   Ingredient,
   IngredientSupplier,
   UnitOfMeasurement,
-  Recipes,
+  Recipe,
+  Chef,
 ];
 
 const sequelize = new Sequelize(config);

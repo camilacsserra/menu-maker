@@ -553,3 +553,9 @@
 {"level":50,"time":1735920629113,"pid":53906,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] USER_NOT_FOUND"}
 {"level":50,"time":1735920644932,"pid":53906,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] USER_NOT_FOUND"}
 {"level":50,"time":1735920660218,"pid":53906,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] USER_NOT_FOUND"}
+{"level":30,"time":1735922125866,"pid":104214,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1735922129337,"pid":104349,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1735922136351,"pid":104454,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1735922157917,"pid":104932,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1735922162832,"pid":105086,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1735925125697,"pid":160392,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}

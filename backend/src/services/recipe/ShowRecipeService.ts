@@ -1,8 +1,8 @@
 import AppError from '@app/errors/appError';
-import { Recipes } from '@app/models';
+import { Recipe } from '@app/models';
 
 export const ShowRecipeService = async (id: number) => {
-  const recipe = await Recipes.findByPk(id, {
+  const recipe = await Recipe.findByPk(id, {
     attributes: [
       'id',
       'name',
