@@ -5,3 +5,4 @@ export * from './user';
 export * from './unitOfMeasurement';
 export * from './recipe';
 export * from './chef';
+export * from './chefShiftType';

@@ -559,3 +559,34 @@
 {"level":30,"time":1735922157917,"pid":104932,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
 {"level":30,"time":1735922162832,"pid":105086,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
 {"level":30,"time":1735925125697,"pid":160392,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334076074,"pid":28445,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334913309,"pid":43162,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334964148,"pid":43950,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334967643,"pid":44015,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334968746,"pid":44051,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334975787,"pid":44239,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736334980283,"pid":44326,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736335384413,"pid":50494,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736335479922,"pid":52994,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736335483413,"pid":53057,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736335487722,"pid":53152,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736335488837,"pid":53175,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736335490339,"pid":53196,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736337277478,"pid":89073,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736337282625,"pid":89175,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736337293602,"pid":89390,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736337323708,"pid":89818,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":30,"time":1736337325551,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":50,"time":1736337461327,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736337812663,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736337837815,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736337890692,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736338613174,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736338764386,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736338811844,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736338817354,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736339036134,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_NOT_FOUND"}
+{"level":50,"time":1736340094792,"pid":89863,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] insert or update on table \"Recipes\" violates foreign key constraint \"Recipes_created_by_id_fkey\""}
+{"level":30,"time":1736340503498,"pid":131345,"hostname":"camila-HP-ProBook-6560b","msg":"Server is running on port 3000"}
+{"level":50,"time":1736340555925,"pid":131345,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_SHIFT_TYPE_NOT_FOUND"}
+{"level":50,"time":1736340591080,"pid":131345,"hostname":"camila-HP-ProBook-6560b","msg":"[HTTP_500] CHEF_SHIFT_TYPE_NOT_FOUND"}

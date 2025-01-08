@@ -8,6 +8,7 @@ import {
   UnitOfMeasurement,
   User,
   Chef,
+  ChefShiftType,
 } from '@app/models';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -21,6 +22,7 @@ const models = [
   UnitOfMeasurement,
   Recipe,
   Chef,
+  ChefShiftType,
 ];
 
 const sequelize = new Sequelize(config);

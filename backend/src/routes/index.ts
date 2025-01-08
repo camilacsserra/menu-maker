@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import authRoutes from './authRoutes';
 import chefRoutes from './chefRoutes';
+import chefShiftTypeRoutes from './chefShiftTypeRoutes';
 import ingredientRoutes from './ingredientsRoutes';
 import recipeRoutes from './recipeRoutes';
 import supplierRoutes from './supplierRoutes';
@@ -23,5 +24,7 @@ router.use(recipeRoutes);
 router.use(authRoutes);
 
 router.use(chefRoutes);
+
+router.use(chefShiftTypeRoutes);
 
 export default router;
