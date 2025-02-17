@@ -6,3 +6,4 @@ export * from './unitOfMeasurement';
 export * from './recipe';
 export * from './chef';
 export * from './chefShiftType';
+export * from './mealType';

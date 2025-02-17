@@ -9,6 +9,7 @@ import {
   User,
   Chef,
   ChefShiftType,
+  MealType,
 } from '@app/models';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -23,6 +24,7 @@ const models = [
   Recipe,
   Chef,
   ChefShiftType,
+  MealType,
 ];
 
 const sequelize = new Sequelize(config);
