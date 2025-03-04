@@ -1,8 +1,8 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
-  up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('unit_of_measure', {
+  up: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.createTable('Chefs', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -24,7 +24,7 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
       updated_at: {
@@ -39,13 +39,12 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
     });
   },
-
-  down: async (queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('unit_of_measure');
+  down: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.dropTable('Chefs');
   },
 };

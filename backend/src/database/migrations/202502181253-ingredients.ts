@@ -1,8 +1,8 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
-  up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable('MealType', {
+  up: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.createTable('Ingredients', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -14,7 +14,8 @@ module.exports = {
       },
       created_at: {
         type: DataTypes.DATE,
-        defaultValue: new Date(),
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
       },
       created_by_id: {
         type: DataTypes.INTEGER,
@@ -23,12 +24,13 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
       updated_at: {
         type: DataTypes.DATE,
-        defaultValue: new Date(),
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
       },
       updated_by_id: {
         type: DataTypes.INTEGER,
@@ -37,12 +39,13 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
     });
   },
-  down: (queryInterface: QueryInterface) => {
-    return queryInterface.dropTable('MealType');
+
+  down: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.dropTable('Ingredients');
   },
 };

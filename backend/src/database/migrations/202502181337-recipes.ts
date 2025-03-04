@@ -1,8 +1,8 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
-  up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('Suppliers', {
+  up: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.createTable('Recipes', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -12,33 +12,28 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      order_at: {
-        type: DataTypes.STRING,
+      methods: {
+        type: DataTypes.TEXT,
         allowNull: true,
       },
-      delivery_at: {
+      servings: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      cookingTime: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        comment: 'In minutes',
+      },
+      dietType: {
         type: DataTypes.STRING,
         allowNull: true,
+        comment: 'is Vegan or vegetarian?',
       },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      phone_number: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      website: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      createdAt: {
+      created_at: {
         type: DataTypes.DATE,
-        defaultValue: new Date(),
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
       },
       created_by_id: {
         type: DataTypes.INTEGER,
@@ -52,7 +47,8 @@ module.exports = {
       },
       updated_at: {
         type: DataTypes.DATE,
-        defaultValue: new Date(),
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
       },
       updated_by_id: {
         type: DataTypes.INTEGER,
@@ -67,7 +63,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('Suppliers');
+  down: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.dropTable('Recipes');
   },
 };

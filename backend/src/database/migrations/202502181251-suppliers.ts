@@ -1,8 +1,8 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
-  up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable('Chefs', {
+  up: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.createTable('Suppliers', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -12,9 +12,32 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      order_at: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      delivery_at: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phone_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      website: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       created_at: {
         type: DataTypes.DATE,
-        allowNull: false,
         defaultValue: DataTypes.NOW,
       },
       created_by_id: {
@@ -24,12 +47,11 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
       updated_at: {
         type: DataTypes.DATE,
-        allowNull: true,
         defaultValue: DataTypes.NOW,
       },
       updated_by_id: {
@@ -39,9 +61,13 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
     });
+  },
+
+  down: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.dropTable('Suppliers');
   },
 };

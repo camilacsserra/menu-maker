@@ -4,7 +4,10 @@ import { Base } from './base';
 import { Ingredient } from './ingredient';
 import { IngredientSupplier } from './ingredientSuppliers';
 
-@Table
+@Table({
+  tableName: 'Supplier',
+  timestamps: true,
+})
 export class Supplier extends Base<Supplier> {
   @Column
   name: string;

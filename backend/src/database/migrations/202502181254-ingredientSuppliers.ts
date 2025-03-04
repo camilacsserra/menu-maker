@@ -1,7 +1,7 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
-  up: async (queryInterface: QueryInterface) => {
+  up: async (queryInterface: QueryInterface): Promise<void> => {
     await queryInterface.createTable('IngredientSuppliers', {
       ingredient_id: {
         type: DataTypes.INTEGER,
@@ -27,16 +27,16 @@ module.exports = {
       },
       created_at: {
         type: DataTypes.DATE,
-        defaultValue: new Date(),
+        defaultValue: DataTypes.NOW,
       },
       updated_at: {
         type: DataTypes.DATE,
-        defaultValue: new Date(),
+        defaultValue: DataTypes.NOW,
       },
     });
   },
 
-  down: async (queryInterface: QueryInterface) => {
+  down: async (queryInterface: QueryInterface): Promise<void> => {
     await queryInterface.dropTable('IngredientSuppliers');
   },
 };

@@ -1,8 +1,8 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 
 module.exports = {
-  up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('Recipes', {
+  up: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.createTable('MealTypes', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -11,24 +11,6 @@ module.exports = {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      methods: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      servings: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      cookingTime: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        comment: 'In minutes',
-      },
-      dietType: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        comment: 'is Vegan or vegetarian?',
       },
       created_at: {
         type: DataTypes.DATE,
@@ -42,7 +24,7 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
       updated_at: {
@@ -57,13 +39,12 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       },
     });
   },
-
-  down: async (queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('Recipes');
+  down: async (queryInterface: QueryInterface): Promise<void> => {
+    await queryInterface.dropTable('MealTypes');
   },
 };
